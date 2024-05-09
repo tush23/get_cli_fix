@@ -9,30 +9,24 @@ import 'internationalization.dart';
 import 'locales.g.dart';
 
 class Structure {
-  static final Map<String, String> _paths = {
-    'page': Directory(replaceAsExpected(
-                path: '${Directory.current.path} /lib/pages/'))
-            .existsSync()
-        ? replaceAsExpected(path: 'lib/pages')
-        : replaceAsExpected(path: 'lib/app/modules'),
-    'widget': replaceAsExpected(path: 'lib/app/widgets/'),
-    'model': replaceAsExpected(path: 'lib/app/data/models'),
+ static final Map<String, String> _paths = {
+    'page': replaceAsExpected(path: 'lib/features/pages/'),
+    'widget': replaceAsExpected(path: 'lib/shared/widgets/'),
+    'model': replaceAsExpected(path: 'lib/features/auth/data/models/'),
     'init': replaceAsExpected(path: 'lib/'),
     'route': replaceAsExpected(path: 'lib/routes/'),
-    'repository': replaceAsExpected(path: 'lib/app/data/'),
-    'provider': replaceAsExpected(path: 'lib/app/data'),
-    'controller': replaceAsExpected(path: 'lib/app'),
-    'binding': replaceAsExpected(path: 'lib/app'),
-    'view': replaceAsExpected(path: 'lib/app/views/'),
-    //artekko files
-    'screen': replaceAsExpected(path: 'lib/presentation'),
-    'controller.binding':
-        replaceAsExpected(path: 'lib/infrastructure/navigation/bindings'),
-    'navigation': replaceAsExpected(
-        path: 'lib/infrastructure/navigation/navigation.dart'),
-    //generator files
-    'generate_locales': replaceAsExpected(path: 'lib/generated'),
-  };
+    'repository': replaceAsExpected(path: 'lib/features/auth/data/repositories/'),
+    'provider': replaceAsExpected(path: 'lib/features/auth/data/'),
+    'controller': replaceAsExpected(path: 'lib/features/auth/presentation/controllers/'),
+    'binding': replaceAsExpected(path: 'lib/features/auth/presentation/bindings/'),
+    'view': replaceAsExpected(path: 'lib/features/auth/presentation/views/'),
+    'core': replaceAsExpected(path: 'lib/core/'),
+    'service': replaceAsExpected(path: 'lib/core/services/'),
+    'utils': replaceAsExpected(path: 'lib/core/utils/'),
+    'config': replaceAsExpected(path: 'lib/core/config/'),
+    'errors': replaceAsExpected(path: 'lib/core/errors/')
+};
+
 
   static FileModel model(String? name, String command, bool wrapperFolder,
       {String? on, String? folderName}) {
